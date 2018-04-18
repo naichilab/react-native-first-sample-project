@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import {Text} from 'react-native';
+import {AppRegistry, Image} from 'react-native';
 
-export default class HelloWorldApp extends Component {
+export default class Naichi extends Component {
     render() {
+        let pic = {
+            uri: 'https://pbs.twimg.com/profile_images/922160532580327424/MTtqKRGm_400x400.jpg'
+        };
         return (
-            <Text>Hello World!!</Text>
+            <Image source={pic} style={{width: 120, height: 120}}/>
         );
     }
 }
