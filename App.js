@@ -1,21 +1,35 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View} from 'react-native';
 
-class Greeting extends Component {
+class Blink extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {isShowingText: true};
+
+        //Toggle the state every second
+        setInterval(() => {
+            this.setState(previousState => {
+                return {isShowingText: !previousState.isShowingText};
+            });
+        }, 1000);
+    }
+
     render() {
+        let display = this.state.isShowingText ? this.props.text : ' ';
         return (
-            <Text>Hello {this.props.name}!</Text>
+            <Text>{display}</Text>
         );
     }
 }
 
-export default class LotsOfGreetings extends Component {
+export default class BlinkApp extends Component {
     render() {
         return (
-            <View style={{alignItems: 'center'}}>
-                <Greeting name='Andre'/>
-                <Greeting name='Bob'/>
-                <Greeting name='Cathy'/>
+            <View>
+                <Blink text='I love to blink'/>
+                <Blink text='Yes blinking is so greet'/>
+                <Blink text='I love to blink'/>
+                <Blink text='I love to blink'/>
             </View>
         );
     }
