@@ -1,13 +1,22 @@
 import React, {Component} from 'react';
-import {AppRegistry, Image} from 'react-native';
+import {AppRegistry, Text, View} from 'react-native';
 
-export default class Naichi extends Component {
+class Greeting extends Component {
     render() {
-        let pic = {
-            uri: 'https://pbs.twimg.com/profile_images/922160532580327424/MTtqKRGm_400x400.jpg'
-        };
         return (
-            <Image source={pic} style={{width: 120, height: 120}}/>
+            <Text>Hello {this.props.name}!</Text>
+        );
+    }
+}
+
+export default class LotsOfGreetings extends Component {
+    render() {
+        return (
+            <View style={{alignItems: 'center'}}>
+                <Greeting name='Andre'/>
+                <Greeting name='Bob'/>
+                <Greeting name='Cathy'/>
+            </View>
         );
     }
 }
