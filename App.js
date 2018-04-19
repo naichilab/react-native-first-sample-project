@@ -11,12 +11,14 @@ export default class FetchExample extends Component {
     return fetch('https://letsplaylist.genieus.co.jp/api/games')
       .then(response => response.json())
       .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.games,
-        }, () => {
-
-        });
+        this.setState(
+          {
+            isLoading: false,
+            dataSource: responseJson.games,
+          },
+          () => {
+          },
+        );
       })
       .catch((error) => {
         console.error(error);
@@ -26,7 +28,9 @@ export default class FetchExample extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{ flex: 1, padding: 20 }}><ActivityIndicator /></View>
+        <View style={{ flex: 1, padding: 20 }}>
+          <ActivityIndicator />
+        </View>
       );
     }
 
@@ -34,7 +38,11 @@ export default class FetchExample extends Component {
       <View style={{ flex: 1, paddingTop: 20 }}>
         <FlatList
           data={this.state.dataSource}
-          renderItem={({ item }) => <Text>{item.title}, {item.id}</Text>}
+          renderItem={({ item }) => (
+            <Text>
+              {item.title}, {item.id}
+            </Text>
+                    )}
           keyExtractor={(item, index) => index}
         />
       </View>
