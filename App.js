@@ -10,12 +10,12 @@ export default class FetchExample extends Component {
     }
 
     componentDidMount() {
-        return fetch('https://facebook.github.io/react-native/movies.json')
+        return fetch('https://letsplaylist.genieus.co.jp/api/games')
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({
                     isLoading: false,
-                    dataSource: responseJson.movies,
+                    dataSource: responseJson.games,
                 }, function () {
 
                 });
@@ -37,7 +37,7 @@ export default class FetchExample extends Component {
             <View style={{flex: 1, paddingTop: 20}}>
                 <FlatList
                     data={this.state.dataSource}
-                    renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
+                    renderItem={({item}) => <Text>{item.title}, {item.id}</Text>}
                     keyExtractor={(item, index) => index}
                 />
             </View>
