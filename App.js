@@ -1,42 +1,20 @@
 import React, {Component} from 'react';
 import {
-    AppRegistry, FlatList, StyleSheet, Text, View
+    AppRegistry, SectionList, StyleSheet, Text, View
 } from 'react-native';
 
-export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
+export default class SectionListBasics extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <FlatList
-                    data={[
-                        {key: 'Davin1'},
-                        {key: 'naichi1'},
-                        {key: 'Davin2'},
-                        {key: 'naichi2'},
-                        {key: 'Davin3'},
-                        {key: 'naichi3'},
-                        {key: 'Davin4'},
-                        {key: 'naichi4'},
-                        {key: 'Davin5'},
-                        {key: 'naichi5'},
-                        {key: 'Davin6'},
-                        {key: 'naichi6'},
-                        {key: 'Davin7'},
-                        {key: 'naichi7'},
-                        {key: 'Davin8'},
-                        {key: 'naichi8'},
-                        {key: 'Davin9'},
-                        {key: 'naichi9'},
-                        {key: 'Davin0'},
-                        {key: 'naich0i'},
-                        {key: 'Davin11'},
-                        {key: 'naichi11'},
-                        {key: 'Davin12'},
-                        {key: 'naichi12'},
-                        {key: 'Davin13'},
-                        {key: 'naichi13'},
+                <SectionList
+                    sections={[
+                        {title: 'D', data: ['Devin']},
+                        {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel']}
                     ]}
-                    renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+                    renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+                    renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+                    keyExtractor={(item, index) => index}
                 />
             </View>
         );
@@ -47,6 +25,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 22
+    },
+    sectionHeader: {
+        paddingTop: 2,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 2,
+        fontSize: 14,
+        fontWeight: 'bold',
+        backgroundColor: 'rgba(247,247,247,1.0)',
     },
     item: {
         padding: 10,
