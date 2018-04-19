@@ -16,8 +16,7 @@ export default class FetchExample extends Component {
             isLoading: false,
             dataSource: responseJson.games,
           },
-          () => {
-          },
+          () => {},
         );
       })
       .catch((error) => {
@@ -42,7 +41,7 @@ export default class FetchExample extends Component {
             <Text>
               {item.title}, {item.id}
             </Text>
-                    )}
+          )}
           keyExtractor={(item, index) => index}
         />
       </View>
